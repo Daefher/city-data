@@ -1,0 +1,71 @@
+<div class="relative z-10" role="dialog" aria-modal="true" *ngIf="show">
+    <div class="fixed inset-0 hidden bg-gray-500 bg-opacity-75 transition-opacity md:block"></div>
+    <div class="fixed inset-0 z-10 w-screen overflow-y-auto">
+        <div class="flex min-h-full items-stretch justify-center text-center md:items-center md:px-2 lg:px-4">
+
+            <div class="flex w-full transform text-left text-base transition md:my-8 md:max-w-2xl md:px-4 lg:max-w-4xl">
+                <div
+                    class="relative flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:px-6 sm:pt-8 md:p-6 lg:p-8">
+                    <button type="button"
+                        class="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8"
+                        (click)="close()">
+                        <span class="sr-only">Close</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                            aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div *ngIf="isLoading; else content">
+                        Loading...
+                    </div>
+                    <ng-template #content>
+                        <div class="overflow-hidden bg-white py-24 sm:py-32">
+                            <div class="mx-auto max-w-7xl px-6 lg:px-16">
+                                <div
+                                    class="mx-auto grid max-w-2xl grid-cols-1 gap-x-16 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-1">
+                                    <div class="lg:pr-8 lg:pt-4">
+                                        <div class="lg:max-w-lg">
+                                            <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                                                {{cityName}}</p>
+                                            <p class="mt-6 text-lg leading-8 text-gray-600">Population:
+                                                {{city_info.population}}</p>
+                                            <dl
+                                                class="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
+                                                <div class="relative pl-9">
+                                                    <dt class="inline font-semibold text-gray-900">
+                                                        <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600"
+                                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd"
+                                                                d="M5.5 17a4.5 4.5 0 01-1.44-8.765 4.5 4.5 0 018.302-3.046 3.5 3.5 0 014.504 4.272A4 4 0 0115 17H5.5zm3.75-2.75a.75.75 0 001.5 0V9.66l1.95 2.1a.75.75 0 101.1-1.02l-3.25-3.5a.75.75 0 00-1.1 0l-3.25 3.5a.75.75 0 101.1 1.02l1.95-2.1v4.59z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                        Region.
+                                                    </dt>
+                                                    <dd class="inline">{{city_info.region}}</dd>
+                                                </div>
+                                                <div class="relative pl-9">
+                                                    <dt class="inline font-semibold text-gray-900">
+                                                        <svg class="absolute left-1 top-1 h-5 w-5 text-indigo-600"
+                                                            viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                                            <path fill-rule="evenodd"
+                                                                d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+                                                                clip-rule="evenodd" />
+                                                        </svg>
+                                                        Summary
+                                                    </dt>
+                                                    <dd class="inline">{{city_info.summary}}</dd>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
