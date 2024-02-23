@@ -1,27 +1,59 @@
-# CityData
+# City Explorer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+City Explorer is an Angular application designed to provide users with detailed information about cities worldwide. It features an interactive interface where users can select cities to view detailed data, including population, attractions, and images. The application utilizes modal components to display city information dynamically and includes a loading indicator for a better user experience during data retrieval.
 
-## Development server
+## Getting Started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-## Code scaffolding
+### Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js (version 14.x or later)
+- Angular CLI (version 11.x or later)
 
-## Build
+### Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clone the repository:
+    ```bash 
+    git clone https://github.com/your-repo/city-explorer.git
 
-## Running unit tests
+2. Navigate to the project directory:
+    ```bash 
+    cd city-explorer
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Install dependencies:
+    ```bash
+    npm install
 
-## Running end-to-end tests
+4. Run the project:
+    ```bash
+    ng serve
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5. Open a browser and navigate to `http://localhost:4200/` to view the application.
 
-## Further help
+## Components
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Modal Component
+
+- **Selector**: `app-city-modal`
+- **Inputs**:
+- `show`: Boolean - Controls the visibility of the modal.
+- `cityName`: String - The name of the city to display information for.
+- `isLoading`: Boolean - Indicates whether the application is fetching city data.
+- **Outputs**:
+- `close`: Event - Emits an event when the modal is closed.
+
+### Services
+
+CityDataService
+Responsible for fetching city data from an external API.
+
+- getCityData(cityName: string): Fetches data for the specified city. Returns an Observable that emits the city data.
+
+- Example Usage:
+    ```bash
+    this.cityDataService.getCityData('New York')
+  .subscribe(data => {
+    console.log(data);
+  });
+
