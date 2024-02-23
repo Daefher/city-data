@@ -52,7 +52,7 @@ Responsible for fetching city data from an external API.
 
 - Example Usage:
     ```bash
-    this.cityDataService.getCityData('New York')
+    this.cityDataService.getCityData(['New York'])
   .subscribe(data => {
     console.log(data);
   });
